@@ -1,4 +1,9 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using myflix_video_catalogue.Data;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<myflix_video_catalogueContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("myflix_video_catalogueContext") ?? throw new InvalidOperationException("Connection string 'myflix_video_catalogueContext' not found.")));
 
 // Add services to the container.
 

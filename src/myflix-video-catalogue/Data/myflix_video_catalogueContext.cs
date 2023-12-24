@@ -15,5 +15,14 @@ namespace myflix_video_catalogue.Data
         }
 
         public DbSet<myflix_video_catalogue.Models.Video> Video { get; set; } = default!;
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Video>().HasData(
+                    new Video { Id = 1, Title = "Shrek", Description = "Good Movie", Author = "Disney", Length = 120, VideoUrl = "www.example.com/Shrek" },
+                    new Video { Id = 2, Title = "Shrek 2", Description = "I need a Heeeeeeeeeerorooooooo!", Author = "Disney", Length = 120, VideoUrl = "www.example.com/Shrek2" },
+                    new Video { Id = 3, Title = "Shrek 3", Description = "???", Author = "Disney", Length = 120, VideoUrl = "www.example.com/Shrek3" }
+                );
+        }
     }
 }

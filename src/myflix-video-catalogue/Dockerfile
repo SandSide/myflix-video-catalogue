@@ -21,4 +21,4 @@ RUN dotnet publish "./myflix-video-catalogue.csproj" -c $BUILD_CONFIGURATION -o 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "myflix-video-catalogue.dll"]
+ENTRYPOINT ["dotnet", "myflix-video-catalogue.dll", "--urls", "http://+:80"]

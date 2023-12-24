@@ -1,7 +1,9 @@
 version: '3'
 services:
   web_api:
-    build: .
+    build:
+        context: .
+        dockerfile: Dockerfile
     container_name: video_catalogue
     ports:
       - "8080:80"

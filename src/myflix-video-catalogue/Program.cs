@@ -14,6 +14,16 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
+// Ensure the database is created and populated
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    var context = services.GetRequiredService<myflix_video_catalogueContext>();
+    context.Database.Migrate();
+
+    // Call a method to populate your database here...
+}
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

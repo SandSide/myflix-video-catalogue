@@ -21,4 +21,4 @@ RUN dotnet publish "./myflix-video-catalogue.csproj" -c $BUILD_CONFIGURATION -o 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-CMD sleep 15 && dotnet myflix-video-catalogue.dll --urls http://+:80
+CMD sleep 15 && dotnet myflix-video-catalogue.dll --urls http://+:8080

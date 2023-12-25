@@ -1,4 +1,4 @@
-version: '3'
+version: '3.4'
 networks:
   default_network:
 services:
@@ -25,6 +25,8 @@ services:
     volumes:
       - db_data:/var/opt/mssql
     networks:
-      - default_network
+      default_network:
+        aliases:
+          - mssql_server
 volumes:
   db_data:

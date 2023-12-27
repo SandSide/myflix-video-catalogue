@@ -1,0 +1,32 @@
+version: '3.4'
+networks:
+  default_network:
+services:
+  web_api:
+    build:
+        context: .
+        dockerfile: Dockerfile
+    container_name: video_catalogue
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    networks:
+      - default_network
+
+  db:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    container_name: mssql_server
+    environment:
+      - MSSQL_SA_PASSWORD=ILikePink!
+      - ACCEPT_EULA=Y
+    ports:
+      - "1433:1433"
+    volumes:
+      - db_data:/var/opt/mssql
+    networks:
+      default_network:
+        aliases:
+          - mssql_server
+volumes:
+  db_data:

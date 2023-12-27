@@ -29,9 +29,11 @@ using (var scope = app.Services.CreateScope())
         Console.WriteLine("Seeding db");
 
         context.Video.AddRange(
-            new Video { Id = 0, Title = "Shrek", Description = "Good Movie", Author = "Disney", Length = 120, VideoUrl = "www.example.com/Shrek" },
-            new Video { Id = 0, Title = "Shrek 2", Description = "I need a Heeeeeeeeeerorooooooo!", Author = "Disney", Length = 120, VideoUrl = "www.example.com/Shrek2" },
-            new Video { Id = 0, Title = "Shrek 3", Description = "???", Author = "Disney", Length = 120, VideoUrl = "www.example.com/Shrek3" }
+            new Video { Id = 0, Title = "C Technical", Description = "Old dude write something", Author = "Pexels", Length = 41, VideoUrl = "pexels-c-technical.mp4" },
+            new Video { Id = 0, Title = "Nicole Michalou", Description = "Christmas table", Author = "Pexels", Length = 15, VideoUrl = "pexels-nicole-michalou.mp4" },
+            new Video { Id = 0, Title = "Olia Danilevich.mp4", Description = "Place stickynotes", Author = "Pexels", Length = 17, VideoUrl = "pexels-olia-danilevich.mp4" },
+            new Video { Id = 0, Title = "Ron Lach", Description = "Interact with drawing tablet", Author = "Pexels", Length = 33, VideoUrl = "pexels-ron-lach.mp4" },
+            new Video { Id = 0, Title = "Production", Description = "Creating clay vase", Author = "Pexels", Length = 8, VideoUrl = "production_id.mp4" }
         );
 
         try

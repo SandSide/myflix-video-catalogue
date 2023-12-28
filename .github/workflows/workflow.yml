@@ -27,4 +27,3 @@ jobs:
                     docker stop mssql_server
                     docker rm mssql_server
                     docker volume rm myflix-video-catalogue_db_data
-                    docker-compose up

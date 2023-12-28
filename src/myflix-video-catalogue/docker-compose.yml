@@ -13,7 +13,6 @@ services:
       - db
     networks:
       - default_network
-    restart: always
 
   db:
     image: mcr.microsoft.com/mssql/server:2019-latest
@@ -29,6 +28,5 @@ services:
       default_network:
         aliases:
           - mssql_server
-    restart: always
 volumes:
   db_data:

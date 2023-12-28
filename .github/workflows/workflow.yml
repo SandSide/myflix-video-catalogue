@@ -24,7 +24,7 @@ jobs:
                     rm -r myflix-video-catalogue
                     git clone --branch ${{env.BRANCH_NAME}} https://github.com/SandSide/myflix-video-catalogue.git
                     cd myflix-video-catalogue/src/myflix-video-catalogue
-                    docker stop mssql-server
-                    docker rm mssql-server
+                    docker stop mssql_server
+                    docker rm mssql_server
                     docker volume rm myflix-video-catalogue_db_data
                     docker-compose up

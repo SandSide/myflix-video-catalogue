@@ -8,11 +8,12 @@ services:
         dockerfile: Dockerfile
     container_name: video_catalogue
     ports:
-      - "8080:8080"
+      - "80:8080"
     depends_on:
       - db
     networks:
       - default_network
+    restart: always
 
   db:
     image: mcr.microsoft.com/mssql/server:2019-latest
@@ -28,5 +29,6 @@ services:
       default_network:
         aliases:
           - mssql_server
+    restart: always
 volumes:
   db_data:

@@ -2,9 +2,9 @@ name: Deploy to Google Cloud VM
 on:
     push:
         branches:
-            - main
+            # - main
             - cloud-deploy
-            - feature/devops
+            # - feature/devops
 env:
     BRANCH_NAME: ${{ github.head_ref || github.ref_name }} 
 jobs:

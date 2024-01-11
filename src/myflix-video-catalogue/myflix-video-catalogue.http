@@ -1,0 +1,6 @@
+@myflix_video_catalogue_HostAddress = http://localhost:5030
+
+GET {{myflix_video_catalogue_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

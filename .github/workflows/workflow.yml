@@ -1,0 +1,29 @@
+name: Deploy to Google Cloud VM
+on:
+    push:
+        branches:
+            # - main
+            - cloud-deploy
+            - feature/devops
+env:
+    BRANCH_NAME: ${{ github.head_ref || github.ref_name }} 
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4       
+
+            - name: Execute docker compose in VM
+              uses: appleboy/ssh-action@master
+              with:
+                host: ${{ secrets.VM_IP }}
+                username: ${{ secrets.VM_USERNAME }}
+                key: ${{ secrets.VM_SSH_KEY }}
+                script: |
+                    rm -r myflix-video-catalogue
+                    git clone --branch ${{env.BRANCH_NAME}} https://github.com/SandSide/myflix-video-catalogue.git
+                    cd myflix-video-catalogue/src/myflix-video-catalogue
+                    docker stop mssql_server
+                    docker rm mssql_server
+                    docker volume rm myflix-video-catalogue_db_data
